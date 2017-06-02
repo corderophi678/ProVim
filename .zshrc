@@ -1,5 +1,5 @@
 # Exports {{{
-export GITHUB_USER="your-username"
+export GITHUB_USER="corderophi678"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
@@ -11,9 +11,9 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 export LS_COLORS=Gxfxcxdxbxegedabagacad
 # }}}
 
-# Ruby {{{
-function get_ruby_version() {
-  ruby -v | awk '{print $1 " " $2}'
+# Node {{{
+function get_node_version() {
+  node -v | awk '{print $1 " " $2}'
 }
 # }}}
 
@@ -185,7 +185,7 @@ function prompt_char {
 }
 
 function box_name {
-  [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
+  hostname -s
 }
 
 # http://blog.joshdick.net/2012/12/30/my_git_prompt_for_zsh.html
@@ -264,12 +264,12 @@ function current_pwd {
 # $(prompt_char) '
 
 PROMPT='
-${PR_GREEN}M.%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string)
+${PR_GREEN}DRC.%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string)
 $(prompt_char) '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
 
-RPROMPT='${PR_GREEN}$(virtualenv_info)%{$reset_color%} ${PR_RED}$(get_ruby_version)%{$reset_color%}'
+RPROMPT='${PR_GREEN}$(virtualenv_info)%{$reset_color%} ${PR_GREEN}$(get_node_version)%{$reset_color%}'
 # }}}
 
 # History {{{
