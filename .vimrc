@@ -41,7 +41,7 @@ set ignorecase
 set hidden
 
 " Turn word wrap off
-set nowrap
+" set nowrap
 
 " Allow backspace to delete end of line, indent and start of line characters
 set backspace=indent,eol,start
@@ -50,10 +50,10 @@ set backspace=indent,eol,start
 set expandtab
 
 " Set tab size in spaces (this is for manual indenting)
-set tabstop=4
+set tabstop=2
 
 " The number of spaces inserted for a tab (used for auto indenting)
-set shiftwidth=4
+set shiftwidth=2
 
 " Turn on line numbers
 set number
@@ -204,6 +204,9 @@ sunmap e
 " Clear search buffer
 :nnoremap § :nohlsearch<cr>
 
+" Make exiting INSERT-mode easier
+inoremap fd <esc>
+
 " Command to use sudo when needed
 cmap w!! %!sudo tee > /dev/null %
 
@@ -335,6 +338,9 @@ autocmd BufNewFile * call SetSpellingColors()
 autocmd BufRead * call SetSpellingColors()
 autocmd InsertEnter * call SetSpellingColors()
 autocmd InsertLeave * call SetSpellingColors()
+
+" Some Templates
+autocmd BufNewFile *.html 0r ~/Templates/index.html
 
 " Change colourscheme when diffing
 fun! SetDiffColors()
